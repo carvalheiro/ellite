@@ -1,0 +1,69 @@
+label {
+  @include font(15px, 300, 15px, .55px);
+  color: $color-text;
+  input, textarea {
+    background: transparent;
+    border: 1px solid currentColor;
+    color: inherit;
+    font: inherit;
+    padding: em(20px, 15px) em(25px, 15px);
+    width: 100%;
+    &::placeholder {
+      color: currentColor;
+    }
+    &:focus {
+      color: $color-primary;
+    }
+  }
+  &[data-type="checkbox"] {
+    align-items: center;
+    cursor: pointer;
+    display: grid;
+    gap: rem(10px);
+    grid-template-columns: auto 1fr;
+    span {
+      @include font(16px, 300, 20px, 1.6px);
+    }
+    input {
+      display: none;
+    }
+    div {
+      border: 2px solid $color-primary;
+      border-radius: 2px;
+      font-size: rem(27px);
+      position: relative;
+      width: 1em;
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+      }
+      &::after {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        font-size: 1.5em;
+        font-weight: 900;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform .1s;
+      }
+    }
+    input:not(:checked) {
+      & + div {
+        &::after {
+          transform: translate(-50%, -50%) scale(0);
+        }
+      }
+    }
+  }
+  &[data-white-mode="true"] {
+    color: white;
+    input, textarea {
+      &:focus {
+        color: $color-secondary;
+      }
+    }
+  }
+}

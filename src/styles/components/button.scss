@@ -1,0 +1,67 @@
+$fontButton: 15px;
+@mixin buttonHover ($background, $color:"white") {
+  @include hover {
+    background-color: $background;
+    border-color: $background;
+    color: $color;
+  }
+}
+@function buttonEm($size) {
+  @return em($size, $fontButton);
+}
+.button {
+  @include font($fontButton, 800, null, 1.5px );
+  @include transition();
+  border-radius: 99999px;
+  border-style: solid;
+  border-width: rem(2px);
+  color: $color-secondary;
+  display: inline-block;
+  margin-left: auto;
+  padding: buttonEm(15px) buttonEm(20px);
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  i {
+    font-size: 1.3em;
+    margin-left: rem(10px);
+  }
+  &[data-type="gray"] {
+    background-color: #747474;
+    border-color: #747474;
+    color: white;
+    @include buttonHover($color-primary, white);
+  }
+  &[data-type="white"] {
+    background: white;
+    border-color: white;
+    color: #747474;
+    @include buttonHover(#747474, white);
+
+  }
+}
+$fontButton2: 16px;
+.button2 {
+  @include font($fontButton2, 700, 20px );
+  @include transition();
+  align-items: center;
+  border-style: solid;
+  border-width: rem(2px);
+  color: $color-secondary;
+  display: flex;
+  margin-right: auto;
+  padding: em(14px, $fontButton2) em(38px, $fontButton2);
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  i {
+    font-size: 1.3em;
+    margin-right: rem(10px);
+  }
+  &[data-type="white"] {
+    background-color: white;
+    border-color: white;
+    color: $color-primary;
+    @include buttonHover(#000000, $color-primary);
+  }
+}

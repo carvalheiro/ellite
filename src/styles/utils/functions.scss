@@ -1,0 +1,14 @@
+@function rem($size) {
+  @return $size / defaultFont("fontSize") * 1rem;
+}
+@function defaultFont($key) {
+  @return map-get($defaultFont, $key);
+}
+
+@function em($px, $context) {
+  @return #{$px / $context}em;
+}
+
+@function vw($px) {
+  @return #{($px / $layoutWidth) * 100}vw;
+}

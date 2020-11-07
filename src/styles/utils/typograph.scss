@@ -1,0 +1,64 @@
+html {
+  font-family: $font-family;
+  @include htmlFont($lgg);
+  @include lg {
+    @include htmlFont($lg);
+  }
+  @include md {
+    @include htmlFont($md);
+  }
+  @include sm {
+    @include htmlFont($sm);
+  }
+  @include xs {
+    @include htmlFont($xs);
+  }
+  @include xxs {
+    @include htmlFont($xxs);
+  }
+}
+
+.title, %title {
+  color: #FFF;
+  @include font(60px, 900, 72px);
+  text-align: left;
+  small {
+    @include font(12px, 700, 18px);
+    display: block;
+    font-family: $font-family;
+    margin-bottom: rem(11px);
+    text-transform: uppercase;
+  }
+}
+@mixin text {
+  @include font(16px, 300, 35px, 1.6px);
+  color: $color-text;
+  text-align: left;
+}
+[data-text-editor="true"] {
+  * {
+    color: inherit!important;
+    font: inherit!important;
+  };
+  b, strong {
+    font-weight: 700!important;
+  }
+  ul {
+    margin: rem(20px) 0;
+    li {
+      align-items: flex-start;
+      display: grid;
+      gap: rem(5px);
+      grid-template-columns: auto 1fr;
+      &::before {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        display: block;
+        height: 1.5em;
+        width: 1.5em;
+      }
+    }
+  }
+}

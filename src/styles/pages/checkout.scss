@@ -1,0 +1,163 @@
+main#checkout {
+  @include fixHeader;
+  & > .marca-dagua {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-8%, -25%);
+    width: vw(490px);
+    z-index: 2;
+    @include md {
+      display: none;
+    }
+  }
+  & > section {
+    @include container;
+    margin-bottom: rem(326px);
+    @include md {
+      padding-top: $padding-mobile;
+      margin-bottom: rem(100px);
+    }
+    & > div {
+      background: white;
+      box-shadow: 0px 10px 30px #00000029;
+      display: grid;
+      gap: rem(144px);
+      grid-template-columns: 1fr 45%;
+      padding-bottom: rem(132px);
+      padding-left: rem(76px);
+      padding-right: rem(234px);
+      padding-top: rem(82px);
+      @include lg {
+        padding: rem(100px);
+        gap: rem(100px);
+      }
+      @include md {
+        grid-template-columns: 100%;
+      }
+      @include sm {
+        padding: rem(30px);
+      }
+      .preco {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        header {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          padding-left: rem(92px);
+          width: 70%;
+          @include lg {
+            width: 100%;
+          }
+          @include md {
+            padding: unset;
+          }
+          h2 {
+            @include font(28px, 700, 35px, 2.8px);
+            text-align: center;
+            text-transform: uppercase;
+            strong {
+              color: $color-primary;
+            }
+          }
+          data {
+            @include font(90px, 700);
+            align-items: center;
+            color: $color-primary;
+            display: flex;
+            justify-content: center;
+            margin-top: rem(20px);
+            abbr {
+              font-size: em(33px, 90px);
+            }
+            small {
+              font-size: em(47px, 90px);
+            }
+          }
+          span {
+            @include font(28px, 700, 35px);
+            background: $color-text;
+            color: white;
+            display: block;
+            margin-top: rem(20px);
+            padding: em(4px, 28px) em(10px, 28px);
+            text-align: center;
+          }
+          & > small {
+            @include font(20px, 300, 24px);
+            color: $color-primary;
+            display: block;
+            margin-top: rem(30px);
+            text-align: center;
+          }
+          figure {
+            align-self: flex-end;
+            margin-top: rem(109px);
+            position: relative;
+            width: 200%;
+            z-index: 0;
+            @include md {
+              display: none;
+            }
+            & > .marca-dagua {
+              position: absolute;
+              right: 0;
+              top: 0;
+              transform: translate(27%, -30%);
+              width: 18vw;
+              z-index: -1;
+              @include md {
+                display: none;
+              }
+            }
+          }
+        }
+        & > figure {
+          padding-top: 140%;
+          position: relative;
+          transform: translate(0, rem(200px));
+          width: 100%;
+          @include md {
+            display: none;
+          }
+          img {
+            @include absolute(center);
+            object-fit: cover;
+          }
+        }
+      }
+      form {
+        display: grid;
+        gap: rem(110px);
+        grid-template-columns: 100%;
+        @include md {
+          gap: rem(50px);
+        }
+        fieldset {
+          & > div {
+            align-items: center;
+            display: grid;
+            gap: rem(20px);
+            grid-template-columns: 1fr 1fr;
+            @include md {
+              grid-template-columns: 100%;
+            }
+            button {
+              @include md {
+                margin: auto;
+              }
+            }
+          }
+          h2 {
+            @include font(28px, 700, 35px);
+            color: $color-primary;
+            grid-column: 1 / -1;
+            margin-bottom: rem(30px);
+          }
+        }
+      }
+    }
+  }
+}

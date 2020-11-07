@@ -1,0 +1,121 @@
+#footer {
+  @include container;
+  padding-bottom: rem(50px);
+  .footerTop {
+    align-items: center;
+    display: grid;
+    gap: rem(30px);
+    grid-template-columns: vw(175px) auto auto;
+    justify-content: space-between;
+    position: relative;
+    @include md {
+      grid-template-columns: 1fr;
+    }
+    img {
+      @include md {
+        margin: auto;
+        width: 200px;
+      }
+    }
+    nav {
+      align-items: center;
+      display: flex;
+      @include md {
+        display: none;
+      }
+      a {
+        @include font(16px, 700, 20px);
+        color: white;
+        &:not(:first-of-type) {
+          margin-left: rem(50px);
+        }
+      }
+    }
+    ul {
+      align-items: center;
+      display: flex;
+      @include md {
+        justify-content: center;
+      }
+      li {
+        display: contents;
+        a {
+          color: white;
+          font-size: rem(35px);
+          @include md {
+            color: $color-text;
+          }
+        }
+        &:not(:first-of-type) {
+          a {
+            margin-left: rem(20px);
+          }
+        }
+      }
+    }
+  }
+  hr {
+    background: white;
+    margin-bottom: rem(53px);
+    margin-top: rem(65px);
+    position: relative;
+    width: 80%;
+    @include md {
+      width: 100%;
+      background: $color-text;
+      margin: rem(50px) 0;
+    }
+  }
+  .footerBottom {
+    @include font(11px, 300, 35px, .55px);
+    align-items: center;
+    color: white;
+    display: grid;
+    gap: rem(10px) rem(36px);
+    grid-template-columns: auto rem(63px);
+    justify-content: center;
+    position: relative;
+    @include md {
+      grid-template-columns: 100%;
+      color: $color-text;
+      text-align: center;
+    }
+    .mw10 {
+      @include md {
+        * {
+          fill: $color-text!important;
+        }
+      }
+    }
+    .protect {
+      @include font(11px, 700, 35px, .55px);
+      color: white;
+      text-align: center;
+      grid-column: 1 / -1;
+      @include hover {
+        text-decoration: underline;
+      }
+      @include md {
+        color: $color-text;
+      }
+    }
+  }
+  &:not([data-white-mode="true"]) {
+    @include redStrip {
+      @include md {
+        display: none;
+      }
+    };
+  }
+  &:not([data-white-mode]) {
+    .footerTop {
+      ul {
+        li {
+          a {
+            color: $color-text;
+          }
+        }
+      }
+    }
+  }
+}

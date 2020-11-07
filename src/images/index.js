@@ -1,0 +1,1 @@
+require.context('./files', true, /./)

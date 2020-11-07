@@ -1,0 +1,43 @@
+.navpagina {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: rem(145px);
+  & > a {
+    color: $color-primary;
+    font-size: rem(25px);
+    &[disabled] {
+      opacity: .5;
+      pointer-events: none;
+    }
+    @include hover {
+      color: white;
+    }
+  }
+  nav {
+    align-items: center;
+    display: flex;
+    margin: 0 rem(20px);
+    a {
+      @include font(14px, 500, 35px, 2.8px);
+      @include transition(true);
+      align-items: center;
+      border-radius: 50%;
+      color: $color-primary;
+      display: flex;
+      height: rem(28px);
+      justify-content: center;
+      margin: 2px;
+      text-align: center;
+      width: rem(28px);
+      &[aria-current="page"] {
+        background-color: white;
+        pointer-events: none;
+      }
+      @include hover {
+        background-color: white;
+        pointer-events: none;
+      }
+    }
+  }
+}

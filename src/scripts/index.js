@@ -1,0 +1,5 @@
+import 'modules/loader/controller'
+import 'modules/header/controller'
+import 'modules/carousel/controller'
+import 'modules/wow/controller'
+import 'pages/home/controller'

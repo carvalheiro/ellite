@@ -1,0 +1,130 @@
+@mixin transition($recursive: false) {
+  transition: all $transition;
+  @if($recursive) {
+    *, *::before, *::after, &::after, &::before {
+      transition: inherit;
+    }
+  }
+}
+
+
+@mixin font($size: defaultFont("fontSize"), $fontWeight: defaultFont("fontWeight"), $line: false, $letter: false) {
+  font-size: rem($size);
+  font-weight: $fontWeight;
+  @if $line {
+    line-height: em($line, $size);
+  } @else {
+    line-height: defaultFont("lineHeight");
+  }
+  @if $letter {
+    letter-spacing: em($letter, $size);
+  } @else {
+    letter-spacing: defaultFont("letterSpacing");
+  }
+}
+
+@mixin fixHeader {
+  padding-top: #{$padding-header};
+  @include lg {
+    padding-top: 11rem;
+  }
+  @include md {
+    padding-top: $padding-header-mobile;
+  }
+}
+
+@mixin htmlFont($reference) {
+  font-size: defaultFont("fontSize") / $reference * 100vw;
+}
+
+@mixin absolute ($type: left-top) {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  @if $type == left-top {
+    left: 0;
+    top: 0;
+  } @else if $type == right-top {
+    right: 0;
+    top: 0;
+  } @else if $type == left-bottom {
+    bottom: 0;
+    left: 0;
+  } @else if $type == right-bottom {
+    bottom: 0;
+    right: 0;
+  } @else if $type == center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@mixin pseudo($element: before, $type: center) {
+  &::#{$element} {
+    content: "";
+    @if $type {
+      @include absolute($type);
+    }
+    @content;
+  }
+}
+
+@mixin  container {
+  padding-left: $padding-container;
+  padding-right: $padding-container;
+  @include md {
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
+  }
+}
+
+@mixin customContainer ($gap) {
+  padding-left: vw($gap);
+  padding-right: vw($gap);
+  @include md {
+    padding-left: $padding-mobile;
+    padding-right: $padding-mobile;
+  }
+}
+
+@mixin grid ($grid-template-columns: 100%, $gap: 0px) {
+  display: grid;
+  gap: rem($gap);
+  grid-template-columns: $grid-template-columns;
+}
+
+@mixin figure ($absolute: true, $fit: cover, $position: center) {
+  position: relative;
+  img {
+    @if $absolute {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    height: 100%;
+    object-fit: $fit;
+    object-position: $position;
+    width: 100%;
+  }
+  @content;
+}
+
+@mixin redStrip {
+  position: relative;
+  &::before{
+    background-color: $color-primary;
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%);
+    width: vw(858px);
+    @include lg {
+      width: vw(1100px);
+    }
+    @content;
+  }
+}

@@ -1,0 +1,125 @@
+header#header {
+  align-items: center;
+  display: grid;
+  gap: vw(216px);
+  grid-template-columns: vw(219px) 1fr;
+  left: 0;
+  padding-bottom: rem(63px);
+  padding-left: vw(221px);
+  padding-right: vw(221px);
+  padding-top: rem(63px);
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: 9999;
+  @include lg {
+    padding-bottom: rem(40px);
+    padding-top: rem(40px);
+  }
+  @include md {
+    display: flex;
+    background-color: #e67a80;
+    padding: 15px 8vw;
+    box-shadow: 0 0 10px #00000080;
+  }
+  .logo {
+    @include md {
+      width: 100px;
+    }
+  }
+  nav {
+    display: flex;
+    @include transition;
+    transform-origin: center top;
+    @include md {
+      background: #000000d4;
+      flex-direction: column;
+      height: auto;
+      left: 0;
+      position: absolute;
+      top: 100%;
+      width: 100%;
+    }
+    a {
+      @include font(25px, 800, 31px);
+      color: white;
+      @include transition;
+      &:not(:first-child) {
+        margin-left: rem(66px);
+      }
+      @include hover {
+        color: black!important;
+      }
+      @include lg {
+        font-size: rem(20px);
+      }
+      @include md {
+        margin: unset!important;
+        padding: 20px;
+        text-align: center;
+        color: white!important;
+        font-size: 16px;
+        &:not(:first-of-type) {
+          border-top: 1px solid #ffffff0d;
+        }
+      }
+    }
+  }
+  &:not([data-white-mode="true"]) {
+    nav {
+      a {
+        color: #747474;
+      }
+    }
+  }
+  #menu-toggle {
+    height: 30px;
+    margin-left: auto;
+    position: relative;
+    width: 30px;
+    @include transition(true);
+    &::before, &::after, span {
+      background-color: white;
+      border-radius: 10px;
+      content: "";
+      height: 5px;
+      position: absolute;
+      transform-origin: 0 50%;
+      width: 100%;
+    }
+    span {
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &::before {
+      left: 0;
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+  @include md {
+    &:not([data-menu-active]) {
+      nav {
+        transform: scaleY(0);
+      }
+    }
+    &[data-menu-active]{
+      box-shadow: 0 0 10px #000000;
+      #menu-toggle {
+        span {
+          opacity: 0;
+        }
+        &::before {
+          transform: rotate(45deg) scale(1.2);
+        }
+        &::after {
+          transform: rotate(-45deg) scale(1.2);
+        }
+      }
+    }
+  }
+}

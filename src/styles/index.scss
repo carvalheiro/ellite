@@ -1,0 +1,24 @@
+@import "~slick-carousel/slick/slick.css";
+// @import "~select2";
+@import "~@fortawesome/fontawesome-free/css/all.css";
+@import "~@fancyapps/fancybox/dist/jquery.fancybox.css";
+@import "~animate.css/animate.css";
+@import "utils/reset";
+@import "fonts/index";
+@import "utils/variables";
+@import "utils/functions";
+@import "utils/mixins";
+@import "utils/responsive";
+@import "utils/global";
+@import "utils/typograph";
+
+@import "components/button";
+@import "components/gallery";
+@import "components/loader";
+@import "components/header";
+@import "components/footer";
+@import "components/form";
+@import "components/paginacao";
+
+@import "pages/checkout";
+@import "pages/home";

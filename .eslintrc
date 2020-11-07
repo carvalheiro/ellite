@@ -1,0 +1,35 @@
+{
+  "extends": ["standard"],
+  "globals": {
+    "afterAll": true,
+    "afterEach": true,
+    "beforeAll": true,
+    "beforeEach": true,
+    "describe": true,
+    "expect": true,
+    "fetch": true,
+    "fixture": true,
+    "it": true,
+    "localStorage": true,
+    "sessionStorage": true,
+    "Date": true,
+    "caches": true,
+    "sinon": true
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-class-assign": "off",
+    "no-debugger": "off",
+    "padded-blocks": "off",
+    "object-curly-spacing": "off",
+    "indent": "off",
+    "no-mixed-operators": "off",
+    "no-multiple-empty-lines": "off",
+    "react/no-unused-prop-types": "off",
+    "no-self-assign": "off",
+    "no-unused-expressions": "off",
+    "react/jsx-indent": "off",
+    "comma-dangle": "off",
+    "no-useless-return": "off"
+  }
+}
